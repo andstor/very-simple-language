@@ -20,4 +20,6 @@ extern node_t *root;
 
 extern int yyparse ( void );
 
+void simplify_tree ( node_t **simplified, node_t *root );
+
 #endif

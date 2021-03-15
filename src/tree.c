@@ -35,7 +35,6 @@ node_print ( node_t *root, int nesting )
 void
 node_init (node_t *nd, node_index_t type, void *data, uint64_t n_children, ...)
 {
-
     nd->type = type;
     nd->data = data;
     nd->n_children = n_children;
@@ -70,4 +69,110 @@ destroy_subtree ( node_t *discard )
             destroy_subtree ( discard->children[i]);
         node_finalize ( discard );
     }
+}
+
+void
+simplify_tree ( node_t **simplified, node_t *root )
+{
+    if (root == NULL)
+        return ;
+
+    /* Simplify subtrees */
+    for (uint64_t i = 0; i < root->n_children; i++)
+        simplify_tree(&root->children[i], root->children[i]);
+
+    node_t *result = root;
+    switch (root->type)
+    {
+    /* Remove nodes of purely syntactic value */
+    case PARAMETER_LIST:
+    case ARGUMENT_LIST:
+    case STATEMENT:
+    case PRINT_ITEM:
+    case GLOBAL:
+        result = root->children[0];
+        node_finalize(root);
+        break;
+    case PRINT_STATEMENT:
+        result = root->children[0];
+        result->type = PRINT_STATEMENT;
+        node_finalize(root);
+        break;
+    
+    /* 
+     * Flatten list structures
+     * Take left child and append the right child.
+     * Replace root with left.
+     */
+    case STATEMENT_LIST:
+    case DECLARATION_LIST:
+    case GLOBAL_LIST:
+    case PRINT_LIST:
+    case EXPRESSION_LIST:
+    case VARIABLE_LIST:
+        if (root->n_children > 1)
+        {
+            result = root->children[0];
+            result->n_children += 1;
+            result->children = realloc(
+                result->children, result->n_children * sizeof(node_t *)
+            );
+            result->children[result->n_children - 1] = root->children[1];
+            node_finalize(root);
+        }
+        break;
+
+    /* Resolve constant Expressions */
+    case EXPRESSION:
+        switch (root->n_children) {
+            case 1:
+                /* Remove node of purely syntactic value */
+                if ( root->children[0]->type == NUMBER_DATA ) {
+                    result = root->children[0];
+
+                    /* Handle urnary minus */
+                    if ( root->data != NULL )
+                        *((int64_t *)result->data) *= -1;
+                    node_finalize (root);
+                }
+                /* Remove null expressions */
+                else if ( root->data == NULL )
+                {
+                        result = root->children[0];
+                        node_finalize (root);
+                }
+                break;
+            
+            case 2:
+                /* Calculate arithmetic operators */
+                if ( root->children[0]->type == NUMBER_DATA &&
+                    root->children[1]->type == NUMBER_DATA
+                ) {
+                    result = root->children[0];
+                    int64_t
+                    *x = result->data,
+                    *y = root->children[1]->data;
+                    switch (*(char *)root->data) {
+                        case '+': *x += *y; break;
+                        case '-': *x -= *y; break;
+                        case '*': *x *= *y; break;
+                        case '/': *x /= *y; break;
+                    default:
+                        break;
+                    }
+                    node_finalize ( root->children[1] );
+                    node_finalize ( root );
+                }
+                break;
+            
+            default:
+                break;
+        }
+
+        break;
+    default:
+        break;
+    }
+
+    *simplified = result;
 }
