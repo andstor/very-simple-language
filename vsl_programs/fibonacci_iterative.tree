@@ -1,0 +1,109 @@
+ PROGRAM
+ GLOBAL_LIST
+  FUNCTION
+   IDENTIFIER_DATA(fibonacci_iterative)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(n)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(w)
+       IDENTIFIER_DATA(x)
+       IDENTIFIER_DATA(y)
+       IDENTIFIER_DATA(f)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(w)
+      IDENTIFIER_DATA(n)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      NUMBER_DATA(1)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(y)
+      NUMBER_DATA(1)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(f)
+      NUMBER_DATA(1)
+     IF_STATEMENT
+      RELATION(>)
+       IDENTIFIER_DATA(w)
+       NUMBER_DATA(0)
+      BLOCK
+       STATEMENT_LIST
+        IF_STATEMENT
+         RELATION(>)
+          IDENTIFIER_DATA(w)
+          NUMBER_DATA(1)
+         IF_STATEMENT
+          RELATION(>)
+           IDENTIFIER_DATA(w)
+           NUMBER_DATA(2)
+          WHILE_STATEMENT
+           RELATION(>)
+            IDENTIFIER_DATA(w)
+            NUMBER_DATA(3)
+           BLOCK
+            STATEMENT_LIST
+             ASSIGNMENT_STATEMENT
+              IDENTIFIER_DATA(f)
+              EXPRESSION(+)
+               IDENTIFIER_DATA(y)
+               IDENTIFIER_DATA(x)
+             ASSIGNMENT_STATEMENT
+              IDENTIFIER_DATA(x)
+              IDENTIFIER_DATA(y)
+             ASSIGNMENT_STATEMENT
+              IDENTIFIER_DATA(y)
+              IDENTIFIER_DATA(f)
+             ASSIGNMENT_STATEMENT
+              IDENTIFIER_DATA(w)
+              EXPRESSION(-)
+               IDENTIFIER_DATA(w)
+               NUMBER_DATA(1)
+      ASSIGNMENT_STATEMENT
+       IDENTIFIER_DATA(f)
+       NUMBER_DATA(0)
+     PRINT_STATEMENT
+      STRING_DATA("Fibonacci number #")
+      IDENTIFIER_DATA(n)
+      STRING_DATA("is")
+      IDENTIFIER_DATA(f)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+String table:
+0: "Fibonacci number #"
+1: "is"
+-- 
+Globals:
+fibonacci_iterative: function 0:
+	5 local variables, 1 are parameters:
+	w: local var 0
+	f: local var 3
+	n: parameter 0
+	y: local var 2
+	x: local var 1
+-- 
+Linked local var 0 ('w')
+Linked parameter 0 ('n')
+Linked local var 1 ('x')
+Linked local var 2 ('y')
+Linked local var 3 ('f')
+Linked local var 0 ('w')
+Linked local var 0 ('w')
+Linked local var 0 ('w')
+Linked local var 0 ('w')
+Linked local var 3 ('f')
+Linked local var 2 ('y')
+Linked local var 1 ('x')
+Linked local var 1 ('x')
+Linked local var 2 ('y')
+Linked local var 2 ('y')
+Linked local var 3 ('f')
+Linked local var 0 ('w')
+Linked local var 0 ('w')
+Linked local var 3 ('f')
+Linked string 0
+Linked parameter 0 ('n')
+Linked string 1
+Linked local var 3 ('f')

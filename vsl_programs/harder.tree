@@ -1,0 +1,132 @@
+ PROGRAM
+ GLOBAL_LIST
+  FUNCTION
+   IDENTIFIER_DATA(start)
+   0x0
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(x)
+    STATEMENT_LIST
+     PRINT_STATEMENT
+      STRING_DATA("Nested scopes coming up...")
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      EXPRESSION
+       IDENTIFIER_DATA(test_me)
+       EXPRESSION_LIST
+        NUMBER_DATA(1)
+     PRINT_STATEMENT
+      STRING_DATA("x:=")
+      IDENTIFIER_DATA(x)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+  FUNCTION
+   IDENTIFIER_DATA(test_me)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(a)
+   BLOCK
+    STATEMENT_LIST
+     PRINT_STATEMENT
+      STRING_DATA("Parameter a is a:=")
+      IDENTIFIER_DATA(a)
+     BLOCK
+      DECLARATION_LIST
+       DECLARATION
+        VARIABLE_LIST
+         IDENTIFIER_DATA(a)
+      STATEMENT_LIST
+       ASSIGNMENT_STATEMENT
+        IDENTIFIER_DATA(a)
+        NUMBER_DATA(2)
+       PRINT_STATEMENT
+        STRING_DATA("Outer scope has a:=")
+        IDENTIFIER_DATA(a)
+       BLOCK
+        DECLARATION_LIST
+         DECLARATION
+          VARIABLE_LIST
+           IDENTIFIER_DATA(b)
+         DECLARATION
+          VARIABLE_LIST
+           IDENTIFIER_DATA(a)
+        STATEMENT_LIST
+         ASSIGNMENT_STATEMENT
+          IDENTIFIER_DATA(a)
+          NUMBER_DATA(3)
+         ASSIGNMENT_STATEMENT
+          IDENTIFIER_DATA(b)
+          NUMBER_DATA(4)
+         BLOCK
+          STATEMENT_LIST
+           PRINT_STATEMENT
+            STRING_DATA("Inner scope has a:=")
+            IDENTIFIER_DATA(a)
+            STRING_DATA("and b:=")
+            IDENTIFIER_DATA(b)
+           ASSIGNMENT_STATEMENT
+            IDENTIFIER_DATA(b)
+            NUMBER_DATA(5)
+         PRINT_STATEMENT
+          STRING_DATA("b was updated to ")
+          IDENTIFIER_DATA(b)
+          STRING_DATA("in inner scope")
+       PRINT_STATEMENT
+        STRING_DATA("Outer scope (still) has a:=")
+        IDENTIFIER_DATA(a)
+     PRINT_STATEMENT
+      STRING_DATA("Return expression (a-1) using a:=")
+      IDENTIFIER_DATA(a)
+     RETURN_STATEMENT
+      EXPRESSION(-)
+       IDENTIFIER_DATA(a)
+       NUMBER_DATA(1)
+String table:
+0: "Parameter a is a:="
+1: "Outer scope has a:="
+2: "Inner scope has a:="
+3: "and b:="
+4: "b was updated to "
+5: "in inner scope"
+6: "Outer scope (still) has a:="
+7: "Return expression (a-1) using a:="
+8: "Nested scopes coming up..."
+9: "x:="
+-- 
+Globals:
+test_me: function 1:
+	4 local variables, 1 are parameters:
+	a: parameter 0
+	a: local var 0
+	a: local var 2
+	b: local var 1
+start: function 0:
+	1 local variables, 0 are parameters:
+	x: local var 0
+-- 
+Linked string 8
+Linked local var 0 ('x')
+Linked function 1 ('test_me')
+Linked string 9
+Linked local var 0 ('x')
+Linked string 0
+Linked parameter 0 ('a')
+Linked local var 0 ('a')
+Linked string 1
+Linked local var 0 ('a')
+Linked local var 2 ('a')
+Linked local var 1 ('b')
+Linked string 2
+Linked local var 2 ('a')
+Linked string 3
+Linked local var 1 ('b')
+Linked local var 1 ('b')
+Linked string 4
+Linked local var 1 ('b')
+Linked string 5
+Linked string 6
+Linked local var 0 ('a')
+Linked string 7
+Linked parameter 0 ('a')
+Linked parameter 0 ('a')

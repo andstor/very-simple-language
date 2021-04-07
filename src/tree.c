@@ -150,15 +150,30 @@ simplify_tree ( node_t **simplified, node_t *root )
                 ) {
                     result = root->children[0];
                     int64_t
-                    *x = result->data,
-                    *y = root->children[1]->data;
-                    switch (*(char *)root->data) {
-                        case '+': *x += *y; break;
-                        case '-': *x -= *y; break;
-                        case '*': *x *= *y; break;
-                        case '/': *x /= *y; break;
-                    default:
-                        break;
+                        *x = result->data,
+                        *y = root->children[1]->data;
+                    char *cc = ((char *)root->data);
+
+                    if ((strcmp(cc,"+") == 0)) {
+                        *x += *y; 
+                    } else if ((strcmp(cc,"-") == 0)) {
+                        *x -= *y; 
+                    } else if ((strcmp(cc,"*") == 0)) {
+                        *x *= *y; 
+                    } else if ((strcmp(cc,"/") == 0)) {
+                        *x %= *y; 
+                    } else if ((strcmp(cc,"<<") == 0)) {
+                        *x =  *x << *y; 
+                    } else if ((strcmp(cc,">>") == 0)) {
+                        *x =  *x >> *y; 
+                    } else if ((strcmp(cc,"&") == 0)) {
+                        *x =  *x & *y;
+                    } else if ((strcmp(cc,"^") == 0)) {
+                        *x =  *x ^ *y;
+                    } else if ((strcmp(cc,"|") == 0)) {
+                        *x =  *x | *y;
+                    } else {
+                    // do nothing
                     }
                     node_finalize ( root->children[1] );
                     node_finalize ( root );

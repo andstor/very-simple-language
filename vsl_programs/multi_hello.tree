@@ -1,0 +1,149 @@
+ PROGRAM
+ GLOBAL_LIST
+  DECLARATION
+   VARIABLE_LIST
+    IDENTIFIER_DATA(w)
+    IDENTIFIER_DATA(x)
+    IDENTIFIER_DATA(y)
+    IDENTIFIER_DATA(z)
+  FUNCTION
+   IDENTIFIER_DATA(hello)
+   0x0
+   BLOCK
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(w)
+      EXPRESSION
+       IDENTIFIER_DATA(goodbye)
+       EXPRESSION_LIST
+        NUMBER_DATA(1)
+        NUMBER_DATA(2)
+        NUMBER_DATA(3)
+        NUMBER_DATA(4)
+        NUMBER_DATA(5)
+        NUMBER_DATA(6)
+        NUMBER_DATA(7)
+        NUMBER_DATA(8)
+     PRINT_STATEMENT
+      IDENTIFIER_DATA(w)
+     RETURN_STATEMENT
+      IDENTIFIER_DATA(w)
+  FUNCTION
+   IDENTIFIER_DATA(tralala)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(wang)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(x)
+       IDENTIFIER_DATA(y)
+       IDENTIFIER_DATA(z)
+       IDENTIFIER_DATA(w)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      NUMBER_DATA(3)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(y)
+      NUMBER_DATA(5)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(z)
+      NUMBER_DATA(2)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(w)
+      NUMBER_DATA(4)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(wang)
+      NUMBER_DATA(42)
+     PRINT_STATEMENT
+      IDENTIFIER_DATA(wang)
+      EXPRESSION(*)
+       IDENTIFIER_DATA(x)
+       IDENTIFIER_DATA(y)
+      EXPRESSION(*)
+       IDENTIFIER_DATA(z)
+       IDENTIFIER_DATA(w)
+     RETURN_STATEMENT
+      NUMBER_DATA(1)
+  FUNCTION
+   IDENTIFIER_DATA(goodbye)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(a)
+    IDENTIFIER_DATA(b)
+    IDENTIFIER_DATA(c)
+    IDENTIFIER_DATA(d)
+    IDENTIFIER_DATA(e)
+    IDENTIFIER_DATA(f)
+    IDENTIFIER_DATA(g)
+    IDENTIFIER_DATA(h)
+   BLOCK
+    STATEMENT_LIST
+     PRINT_STATEMENT
+      IDENTIFIER_DATA(a)
+      IDENTIFIER_DATA(b)
+      IDENTIFIER_DATA(c)
+      IDENTIFIER_DATA(d)
+      IDENTIFIER_DATA(e)
+      IDENTIFIER_DATA(f)
+      IDENTIFIER_DATA(g)
+      IDENTIFIER_DATA(h)
+     PRINT_STATEMENT
+      STRING_DATA("Morna")
+     RETURN_STATEMENT
+      EXPRESSION
+       IDENTIFIER_DATA(tralala)
+       EXPRESSION_LIST
+        NUMBER_DATA(1)
+String table:
+0: "Morna"
+-- 
+Globals:
+x: global variable
+hello: function 0:
+	0 local variables, 0 are parameters:
+z: global variable
+w: global variable
+goodbye: function 2:
+	8 local variables, 8 are parameters:
+	f: parameter 5
+	a: parameter 0
+	h: parameter 7
+	d: parameter 3
+	c: parameter 2
+	g: parameter 6
+	b: parameter 1
+	e: parameter 4
+y: global variable
+tralala: function 1:
+	5 local variables, 1 are parameters:
+	x: local var 0
+	w: local var 3
+	z: local var 2
+	y: local var 1
+	wang: parameter 0
+-- 
+Linked global var 'w'
+Linked function 2 ('goodbye')
+Linked global var 'w'
+Linked global var 'w'
+Linked local var 0 ('x')
+Linked local var 1 ('y')
+Linked local var 2 ('z')
+Linked local var 3 ('w')
+Linked parameter 0 ('wang')
+Linked parameter 0 ('wang')
+Linked local var 0 ('x')
+Linked local var 1 ('y')
+Linked local var 2 ('z')
+Linked local var 3 ('w')
+Linked parameter 0 ('a')
+Linked parameter 1 ('b')
+Linked parameter 2 ('c')
+Linked parameter 3 ('d')
+Linked parameter 4 ('e')
+Linked parameter 5 ('f')
+Linked parameter 6 ('g')
+Linked parameter 7 ('h')
+Linked string 0
+Linked function 1 ('tralala')

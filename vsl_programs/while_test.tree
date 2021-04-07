@@ -1,0 +1,72 @@
+ PROGRAM
+ GLOBAL_LIST
+  FUNCTION
+   IDENTIFIER_DATA(while_test)
+   0x0
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(a)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(a)
+      NUMBER_DATA(20)
+     PRINT_STATEMENT
+      IDENTIFIER_DATA(a)
+     IF_STATEMENT
+      RELATION(>)
+       IDENTIFIER_DATA(a)
+       NUMBER_DATA(0)
+      PRINT_STATEMENT
+       STRING_DATA("foobar")
+     WHILE_STATEMENT
+      RELATION(>)
+       IDENTIFIER_DATA(a)
+       NUMBER_DATA(0)
+      BLOCK
+       STATEMENT_LIST
+        IF_STATEMENT
+         RELATION(=)
+          IDENTIFIER_DATA(a)
+          NUMBER_DATA(10)
+         BLOCK
+          STATEMENT_LIST
+           ASSIGNMENT_STATEMENT
+            IDENTIFIER_DATA(a)
+            EXPRESSION(-)
+             IDENTIFIER_DATA(a)
+             NUMBER_DATA(1)
+           PRINT_STATEMENT
+            STRING_DATA("Skip...")
+           NULL_STATEMENT
+         ASSIGNMENT_STATEMENT
+          IDENTIFIER_DATA(a)
+          EXPRESSION(-)
+           IDENTIFIER_DATA(a)
+           NUMBER_DATA(1)
+        PRINT_STATEMENT
+         IDENTIFIER_DATA(a)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+String table:
+0: "foobar"
+1: "Skip..."
+-- 
+Globals:
+while_test: function 0:
+	1 local variables, 0 are parameters:
+	a: local var 0
+-- 
+Linked local var 0 ('a')
+Linked local var 0 ('a')
+Linked local var 0 ('a')
+Linked string 0
+Linked local var 0 ('a')
+Linked local var 0 ('a')
+Linked local var 0 ('a')
+Linked local var 0 ('a')
+Linked string 1
+Linked local var 0 ('a')
+Linked local var 0 ('a')
+Linked local var 0 ('a')

@@ -1,0 +1,92 @@
+ PROGRAM
+ GLOBAL_LIST
+  FUNCTION
+   IDENTIFIER_DATA(fibonacci_recursive)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(n)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(f)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(f)
+      EXPRESSION
+       IDENTIFIER_DATA(fibonacci_number)
+       EXPRESSION_LIST
+        IDENTIFIER_DATA(n)
+     PRINT_STATEMENT
+      STRING_DATA("Fibonacci number #")
+      IDENTIFIER_DATA(n)
+      STRING_DATA("is")
+      IDENTIFIER_DATA(f)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+  FUNCTION
+   IDENTIFIER_DATA(fibonacci_number)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(n)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(y)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(y)
+      NUMBER_DATA(0)
+     IF_STATEMENT
+      RELATION(>)
+       IDENTIFIER_DATA(n)
+       NUMBER_DATA(2)
+      ASSIGNMENT_STATEMENT
+       IDENTIFIER_DATA(y)
+       EXPRESSION(+)
+        EXPRESSION
+         IDENTIFIER_DATA(fibonacci_number)
+         EXPRESSION_LIST
+          EXPRESSION(-)
+           IDENTIFIER_DATA(n)
+           NUMBER_DATA(1)
+        EXPRESSION
+         IDENTIFIER_DATA(fibonacci_number)
+         EXPRESSION_LIST
+          EXPRESSION(-)
+           IDENTIFIER_DATA(n)
+           NUMBER_DATA(2)
+      ASSIGNMENT_STATEMENT
+       IDENTIFIER_DATA(y)
+       NUMBER_DATA(1)
+     RETURN_STATEMENT
+      IDENTIFIER_DATA(y)
+String table:
+0: "Fibonacci number #"
+1: "is"
+-- 
+Globals:
+fibonacci_recursive: function 0:
+	2 local variables, 1 are parameters:
+	f: local var 0
+	n: parameter 0
+fibonacci_number: function 1:
+	2 local variables, 1 are parameters:
+	y: local var 0
+	n: parameter 0
+-- 
+Linked local var 0 ('f')
+Linked function 1 ('fibonacci_number')
+Linked parameter 0 ('n')
+Linked string 0
+Linked parameter 0 ('n')
+Linked string 1
+Linked local var 0 ('f')
+Linked local var 0 ('y')
+Linked parameter 0 ('n')
+Linked local var 0 ('y')
+Linked function 1 ('fibonacci_number')
+Linked parameter 0 ('n')
+Linked function 1 ('fibonacci_number')
+Linked parameter 0 ('n')
+Linked local var 0 ('y')
+Linked local var 0 ('y')

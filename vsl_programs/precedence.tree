@@ -1,0 +1,72 @@
+ PROGRAM
+ GLOBAL_LIST
+  FUNCTION
+   IDENTIFIER_DATA(precedence)
+   0x0
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(a)
+       IDENTIFIER_DATA(b)
+       IDENTIFIER_DATA(c)
+       IDENTIFIER_DATA(d)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(a)
+      NUMBER_DATA(2)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(b)
+      NUMBER_DATA(3)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(c)
+      NUMBER_DATA(1)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(d)
+      EXPRESSION(*)
+       IDENTIFIER_DATA(a)
+       EXPRESSION(-)
+        IDENTIFIER_DATA(b)
+        IDENTIFIER_DATA(c)
+     PRINT_STATEMENT
+      STRING_DATA("2*(3-1) := ")
+      IDENTIFIER_DATA(d)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(d)
+      EXPRESSION(-)
+       EXPRESSION(*)
+        IDENTIFIER_DATA(a)
+        IDENTIFIER_DATA(b)
+       IDENTIFIER_DATA(c)
+     PRINT_STATEMENT
+      STRING_DATA("2*3-1 := ")
+      IDENTIFIER_DATA(d)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+String table:
+0: "2*(3-1) := "
+1: "2*3-1 := "
+-- 
+Globals:
+precedence: function 0:
+	4 local variables, 0 are parameters:
+	a: local var 0
+	d: local var 3
+	c: local var 2
+	b: local var 1
+-- 
+Linked local var 0 ('a')
+Linked local var 1 ('b')
+Linked local var 2 ('c')
+Linked local var 3 ('d')
+Linked local var 0 ('a')
+Linked local var 1 ('b')
+Linked local var 2 ('c')
+Linked string 0
+Linked local var 3 ('d')
+Linked local var 3 ('d')
+Linked local var 0 ('a')
+Linked local var 1 ('b')
+Linked local var 2 ('c')
+Linked string 1
+Linked local var 3 ('d')

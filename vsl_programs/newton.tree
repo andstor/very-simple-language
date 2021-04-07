@@ -1,20 +1,37 @@
  PROGRAM
  GLOBAL_LIST
+  DECLARATION
+   VARIABLE_LIST
+    IDENTIFIER_DATA(x)
+    IDENTIFIER_DATA(y)
+    IDENTIFIER_DATA(z)
+  DECLARATION
+   VARIABLE_LIST
+    IDENTIFIER_DATA(a)
+    IDENTIFIER_DATA(b)
+    IDENTIFIER_DATA(c)
   FUNCTION
    IDENTIFIER_DATA(newton)
    VARIABLE_LIST
     IDENTIFIER_DATA(n)
    BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(square_root)
     STATEMENT_LIST
-     PRINT_STATEMENT
-      STRING_DATA("The square root of")
-      IDENTIFIER_DATA(n)
-      STRING_DATA("is")
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(square_root)
       EXPRESSION
        IDENTIFIER_DATA(improve)
        EXPRESSION_LIST
         IDENTIFIER_DATA(n)
         NUMBER_DATA(1)
+     PRINT_STATEMENT
+      STRING_DATA("The square root of")
+      IDENTIFIER_DATA(n)
+      STRING_DATA("is")
+      IDENTIFIER_DATA(square_root)
      RETURN_STATEMENT
       NUMBER_DATA(0)
   FUNCTION
@@ -57,3 +74,55 @@
         EXPRESSION_LIST
          IDENTIFIER_DATA(n)
          IDENTIFIER_DATA(next)
+  FUNCTION
+   IDENTIFIER_DATA(fourty_two)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(x)
+   RETURN_STATEMENT
+    EXPRESSION(+)
+     IDENTIFIER_DATA(x)
+     NUMBER_DATA(42)
+String table:
+0: "The square root of"
+1: "is"
+-- 
+Globals:
+a: global variable
+x: global variable
+newton: function 0:
+	2 local variables, 1 are parameters:
+	square_root: local var 0
+	n: parameter 0
+fourty_two: function 2:
+	1 local variables, 1 are parameters:
+	x: parameter 0
+improve: function 1:
+	3 local variables, 2 are parameters:
+	estimate: parameter 1
+	next: local var 0
+	n: parameter 0
+c: global variable
+z: global variable
+y: global variable
+b: global variable
+-- 
+Linked local var 0 ('square_root')
+Linked function 1 ('improve')
+Linked parameter 0 ('n')
+Linked string 0
+Linked parameter 0 ('n')
+Linked string 1
+Linked local var 0 ('square_root')
+Linked local var 0 ('next')
+Linked parameter 1 ('estimate')
+Linked parameter 1 ('estimate')
+Linked parameter 1 ('estimate')
+Linked parameter 0 ('n')
+Linked parameter 1 ('estimate')
+Linked local var 0 ('next')
+Linked parameter 1 ('estimate')
+Linked local var 0 ('next')
+Linked function 1 ('improve')
+Linked parameter 0 ('n')
+Linked local var 0 ('next')
+Linked parameter 0 ('x')

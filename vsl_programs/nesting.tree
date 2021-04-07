@@ -1,0 +1,120 @@
+ PROGRAM
+ GLOBAL_LIST
+  FUNCTION
+   IDENTIFIER_DATA(hello)
+   0x0
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(x)
+    STATEMENT_LIST
+     PRINT_STATEMENT
+      STRING_DATA("Hello, world!")
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      EXPRESSION
+       IDENTIFIER_DATA(test_me)
+       EXPRESSION_LIST
+        NUMBER_DATA(42)
+     PRINT_STATEMENT
+      STRING_DATA("x:=")
+      IDENTIFIER_DATA(x)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+  FUNCTION
+   IDENTIFIER_DATA(test_me)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(a)
+   BLOCK
+    STATEMENT_LIST
+     BLOCK
+      DECLARATION_LIST
+       DECLARATION
+        VARIABLE_LIST
+         IDENTIFIER_DATA(a)
+      STATEMENT_LIST
+       ASSIGNMENT_STATEMENT
+        IDENTIFIER_DATA(a)
+        NUMBER_DATA(32)
+       PRINT_STATEMENT
+        STRING_DATA("Outer scope has a:=")
+        IDENTIFIER_DATA(a)
+       BLOCK
+        DECLARATION_LIST
+         DECLARATION
+          VARIABLE_LIST
+           IDENTIFIER_DATA(b)
+         DECLARATION
+          VARIABLE_LIST
+           IDENTIFIER_DATA(a)
+        STATEMENT_LIST
+         ASSIGNMENT_STATEMENT
+          IDENTIFIER_DATA(a)
+          NUMBER_DATA(64)
+         ASSIGNMENT_STATEMENT
+          IDENTIFIER_DATA(b)
+          NUMBER_DATA(27)
+         BLOCK
+          STATEMENT_LIST
+           PRINT_STATEMENT
+            STRING_DATA("I have a:=")
+            IDENTIFIER_DATA(a)
+            STRING_DATA("and b:=")
+            IDENTIFIER_DATA(b)
+           ASSIGNMENT_STATEMENT
+            IDENTIFIER_DATA(b)
+            NUMBER_DATA(128)
+         PRINT_STATEMENT
+          STRING_DATA("B was reassigned to ")
+          IDENTIFIER_DATA(b)
+          STRING_DATA("in inner")
+       PRINT_STATEMENT
+        STRING_DATA("Outer scope has a:=")
+        IDENTIFIER_DATA(a)
+     RETURN_STATEMENT
+      EXPRESSION(+)
+       IDENTIFIER_DATA(a)
+       NUMBER_DATA(1)
+String table:
+0: "Hello, world!"
+1: "x:="
+2: "Outer scope has a:="
+3: "I have a:="
+4: "and b:="
+5: "B was reassigned to "
+6: "in inner"
+7: "Outer scope has a:="
+-- 
+Globals:
+hello: function 0:
+	1 local variables, 0 are parameters:
+	x: local var 0
+test_me: function 1:
+	4 local variables, 1 are parameters:
+	a: parameter 0
+	a: local var 0
+	a: local var 2
+	b: local var 1
+-- 
+Linked string 0
+Linked local var 0 ('x')
+Linked function 1 ('test_me')
+Linked string 1
+Linked local var 0 ('x')
+Linked local var 0 ('a')
+Linked string 2
+Linked local var 0 ('a')
+Linked local var 2 ('a')
+Linked local var 1 ('b')
+Linked string 3
+Linked local var 2 ('a')
+Linked string 4
+Linked local var 1 ('b')
+Linked local var 1 ('b')
+Linked string 5
+Linked local var 1 ('b')
+Linked string 6
+Linked string 7
+Linked local var 0 ('a')
+Linked parameter 0 ('a')

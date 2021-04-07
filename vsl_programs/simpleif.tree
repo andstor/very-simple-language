@@ -1,0 +1,92 @@
+ PROGRAM
+ GLOBAL_LIST
+  FUNCTION
+   IDENTIFIER_DATA(dingdong)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(a)
+    IDENTIFIER_DATA(b)
+    IDENTIFIER_DATA(c)
+    IDENTIFIER_DATA(d)
+    IDENTIFIER_DATA(e)
+    IDENTIFIER_DATA(f)
+    IDENTIFIER_DATA(g)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(x)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      NUMBER_DATA(42)
+     PRINT_STATEMENT
+      IDENTIFIER_DATA(a)
+      IDENTIFIER_DATA(b)
+      IDENTIFIER_DATA(c)
+      IDENTIFIER_DATA(d)
+      IDENTIFIER_DATA(e)
+      IDENTIFIER_DATA(f)
+      IDENTIFIER_DATA(g)
+     IF_STATEMENT
+      RELATION(=)
+       IDENTIFIER_DATA(x)
+       NUMBER_DATA(42)
+      BLOCK
+       STATEMENT_LIST
+        PRINT_STATEMENT
+         STRING_DATA("Equal!")
+        ASSIGNMENT_STATEMENT
+         IDENTIFIER_DATA(x)
+         NUMBER_DATA(43)
+      BLOCK
+       STATEMENT_LIST
+        ASSIGNMENT_STATEMENT
+         IDENTIFIER_DATA(x)
+         NUMBER_DATA(44)
+     WHILE_STATEMENT
+      RELATION(>)
+       IDENTIFIER_DATA(x)
+       NUMBER_DATA(0)
+      BLOCK
+       STATEMENT_LIST
+        PRINT_STATEMENT
+         IDENTIFIER_DATA(x)
+        ASSIGNMENT_STATEMENT
+         IDENTIFIER_DATA(x)
+         EXPRESSION(-)
+          IDENTIFIER_DATA(x)
+          NUMBER_DATA(1)
+     RETURN_STATEMENT
+      IDENTIFIER_DATA(x)
+String table:
+0: "Equal!"
+-- 
+Globals:
+dingdong: function 0:
+	8 local variables, 7 are parameters:
+	f: parameter 5
+	a: parameter 0
+	x: local var 0
+	d: parameter 3
+	c: parameter 2
+	g: parameter 6
+	b: parameter 1
+	e: parameter 4
+-- 
+Linked local var 0 ('x')
+Linked parameter 0 ('a')
+Linked parameter 1 ('b')
+Linked parameter 2 ('c')
+Linked parameter 3 ('d')
+Linked parameter 4 ('e')
+Linked parameter 5 ('f')
+Linked parameter 6 ('g')
+Linked local var 0 ('x')
+Linked string 0
+Linked local var 0 ('x')
+Linked local var 0 ('x')
+Linked local var 0 ('x')
+Linked local var 0 ('x')
+Linked local var 0 ('x')
+Linked local var 0 ('x')
+Linked local var 0 ('x')

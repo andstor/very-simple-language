@@ -1,0 +1,123 @@
+ PROGRAM
+ GLOBAL_LIST
+  FUNCTION
+   IDENTIFIER_DATA(f)
+   0x0
+   BLOCK
+    STATEMENT_LIST
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+  FUNCTION
+   IDENTIFIER_DATA(g)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(a)
+    IDENTIFIER_DATA(b)
+    IDENTIFIER_DATA(c)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(u)
+       IDENTIFIER_DATA(v)
+       IDENTIFIER_DATA(w)
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(x)
+       IDENTIFIER_DATA(y)
+       IDENTIFIER_DATA(z)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(u)
+      NUMBER_DATA(1)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(v)
+      NUMBER_DATA(2)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(w)
+      EXPRESSION
+       IDENTIFIER_DATA(g)
+       EXPRESSION_LIST
+        EXPRESSION(+)
+         IDENTIFIER_DATA(x)
+         NUMBER_DATA(1)
+        EXPRESSION(+)
+         IDENTIFIER_DATA(y)
+         NUMBER_DATA(2)
+        EXPRESSION(+)
+         IDENTIFIER_DATA(z)
+         NUMBER_DATA(3)
+     PRINT_STATEMENT
+      IDENTIFIER_DATA(u)
+      IDENTIFIER_DATA(v)
+      IDENTIFIER_DATA(w)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+  FUNCTION
+   IDENTIFIER_DATA(h)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(a)
+    IDENTIFIER_DATA(b)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(x)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      NUMBER_DATA(5)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      NUMBER_DATA(1)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      NUMBER_DATA(4)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      NUMBER_DATA(0)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      NUMBER_DATA(-6)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(x)
+      NUMBER_DATA(0)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+String table:
+-- 
+Globals:
+f: function 0:
+	0 local variables, 0 are parameters:
+h: function 2:
+	3 local variables, 2 are parameters:
+	a: parameter 0
+	x: local var 0
+	b: parameter 1
+g: function 1:
+	9 local variables, 3 are parameters:
+	a: parameter 0
+	u: local var 0
+	x: local var 3
+	z: local var 5
+	c: parameter 2
+	y: local var 4
+	w: local var 2
+	v: local var 1
+	b: parameter 1
+-- 
+Linked local var 0 ('u')
+Linked local var 1 ('v')
+Linked local var 2 ('w')
+Linked function 1 ('g')
+Linked local var 3 ('x')
+Linked local var 4 ('y')
+Linked local var 5 ('z')
+Linked local var 0 ('u')
+Linked local var 1 ('v')
+Linked local var 2 ('w')
+Linked local var 0 ('x')
+Linked local var 0 ('x')
+Linked local var 0 ('x')
+Linked local var 0 ('x')
+Linked local var 0 ('x')
+Linked local var 0 ('x')
