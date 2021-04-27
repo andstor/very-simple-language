@@ -24,5 +24,21 @@ extern int yyparse ( void );
 /* Global root node */
 extern node_t *root;
 
+// Moving global defs to global header
+extern tlhash_t *global_names;  // Defined in ir.c, used by generator.c
+extern char **string_list;      // Defined in ir.c, used by generator.c
+extern size_t stringc;          // Defined in ir.c, used by generator.c
+
+/* Global routines, called from main in vslc.c */
+void simplify_tree (node_t **simplified, node_t *root);
+void node_print(node_t *root, int nesting);
+void destroy_subtree ( node_t *discard );
+
+void create_symbol_table ( void );
+void print_symbol_table ( void );
+void destroy_symbol_table ( void );
+
+void generate_program(void);
+
 
 #endif

@@ -1,3 +1,7 @@
+# Verry Simple Language files
+vsl_programs/
+!*.vsl
+
 # Prerequisites
 *.d
 

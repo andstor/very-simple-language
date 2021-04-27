@@ -1,4 +1,4 @@
-TARGETS=$(shell ls *.vsl | sed s/\.vsl//g && ls *.vsl | sed s/\.vsl/\.tree/g && ls *.vsl | sed s/\.vsl/\.txt/g)
+TARGETS=$(shell ls *.vsl | sed s/\.vsl//g)
 all: ${TARGETS}
 
 # Currently the binaries won't compile directly
@@ -17,7 +17,7 @@ all: ${TARGETS}
 
 #CFLAGS = -g
 
-%: %.s
+%: %.s %.tree %.txt
 	$(CC) -o $@ $< -no-pie
 
 .PRECIOUS: %.s %.tree %.txt
